@@ -40,7 +40,6 @@ func CreateCheckoutCommandChoices(ts *tebexgo.Session) []*discordgo.ApplicationC
 	pkgs, _ := ts.GetAllPackages()
 
 	c := make([]*discordgo.ApplicationCommandOptionChoice, 0)
-
 	for _, p := range pkgs {
 		c = append(c, &discordgo.ApplicationCommandOptionChoice{
 			Name:  p.Name,
@@ -49,4 +48,20 @@ func CreateCheckoutCommandChoices(ts *tebexgo.Session) []*discordgo.ApplicationC
 	}
 
 	return c
+}
+
+func RegisterCheckoutCommand(ts *tebexgo.Session) *discordgo.ApplicationCommand {
+	return &discordgo.ApplicationCommand{
+		Name:        "checkout",
+		Description: "Creates a checkout url for a package",
+		Options: []*discordgo.ApplicationCommandOption{
+			{
+				Description: "The package to buy",
+				Type:        discordgo.ApplicationCommandOptionString,
+				Name:        "package-id",
+				Required:    true,
+				Choices:     CreateCheckoutCommandChoices(ts),
+			},
+		},
+	}
 }

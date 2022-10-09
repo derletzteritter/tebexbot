@@ -32,19 +32,7 @@ func main() {
 	}
 
 	commands := []*discordgo.ApplicationCommand{
-		{
-			Name:        "checkout",
-			Description: "Creates a checkout for a package",
-			Options: []*discordgo.ApplicationCommandOption{
-				{
-					Description: "The package to buy",
-					Type:        discordgo.ApplicationCommandOptionString,
-					Name:        "package-id",
-					Required:    true,
-					Choices:     tbc.CreateCheckoutCommandChoices(ts),
-				},
-			},
-		},
+		tbc.RegisterCheckoutCommand(ts),
 	}
 
 	commandHandlers := map[string]func(s *discordgo.Session, i *discordgo.InteractionCreate){
