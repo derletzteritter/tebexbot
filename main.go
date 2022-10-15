@@ -7,13 +7,14 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	tbc "github.com/itschip/tebexbot/commands"
+	"github.com/itschip/tebexbot/internal"
 	"github.com/itschip/tebexgo"
 )
 
 var (
-	BotToken    = ""
-	GuildID     = ""
-	TebexSecret = ""
+	BotToken    = internal.EnvVariable("BOT_TOKEN")
+	GuildID     = internal.EnvVariable("GUILD_ID")
+	TebexSecret = internal.EnvVariable("TEBEX_SECRET")
 )
 
 var (
@@ -33,11 +34,15 @@ func main() {
 
 	commands := []*discordgo.ApplicationCommand{
 		tbc.RegisterCheckoutCommand(ts),
+		tbc.RegisterPackageCommand(),
 	}
 
 	commandHandlers := map[string]func(s *discordgo.Session, i *discordgo.InteractionCreate){
 		"checkout": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			tbc.CreateCheckoutCommand(ts, s, i)
+		},
+		"packages": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
+			tbc.CreatePackageCommand(ts, s, i)
 		},
 	}
 

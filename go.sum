@@ -12,6 +12,8 @@ github.com/itschip/tebexgo v1.0.4-0.20221008162418-e0c73cf004f6 h1:umakx6IH1BmFS
 github.com/itschip/tebexgo v1.0.4-0.20221008162418-e0c73cf004f6/go.mod h1:eKB/yCzdqoaY9ZXeuWZnukeNI1GaCbo3eDYDp722O6g=
 github.com/itschip/tebexgo v1.0.5 h1:YeV/Bv/djxiGki1YrQFn6eGXWljOUD8yjretgi2YCT8=
 github.com/itschip/tebexgo v1.0.5/go.mod h1:eKB/yCzdqoaY9ZXeuWZnukeNI1GaCbo3eDYDp722O6g=
+github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
+github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b h1:7mWr3k41Qtv8XlltBkDkl8LoP3mpSgBW8BUoxtEdbXg=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
