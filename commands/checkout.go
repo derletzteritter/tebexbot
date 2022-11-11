@@ -16,13 +16,16 @@ func CreateCheckoutCommand(ts *tebexgo.Session, s *discordgo.Session, i *discord
 	}
 
 	packageId, ok := optionsMap["package-id"]
+	user, ok := optionsMap["user"]
+
 	if !ok {
 		log.Println("Failed to find package")
 	}
 	checkoutObject := &tebexgo.PutCheckoutObject{
 		PackageId: packageId.StringValue(),
-		Username:  "chip",
+		Username:  user.StringValue(),
 	}
+
 	checkout, err := ts.CreateCheckoutUrl(checkoutObject)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -55,6 +58,12 @@ func RegisterCheckoutCommand(ts *tebexgo.Session) *discordgo.ApplicationCommand 
 		Name:        "checkout",
 		Description: "Creates a checkout url for a package",
 		Options: []*discordgo.ApplicationCommandOption{
+			{
+				Name:        "user",
+				Description: "The username which is to buy the package",
+				Required:    true,
+				Type:        discordgo.ApplicationCommandOptionString,
+			},
 			{
 				Description: "The package to buy",
 				Type:        discordgo.ApplicationCommandOptionString,

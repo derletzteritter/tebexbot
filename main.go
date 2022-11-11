@@ -44,6 +44,7 @@ func main() {
 		"packages": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			tbc.CreatePackageCommand(ts, s, i)
 		},
+		"ban": func(s *discordgo.Session, i *discordgo.InteractionCreate) {},
 	}
 
 	s.AddHandler(func(s *discordgo.Session, i *discordgo.InteractionCreate) {
